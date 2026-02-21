@@ -51,3 +51,26 @@ new class extends Component {
         <flux:button onclick="document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen()" size="sm" class="m-1 relative !z-[9999]">fullscreen</flux:button>
     </div>
 </div>
+
+<script>
+let wakeLock = null;
+
+async function requestWakeLock() {
+    try {
+        wakeLock = await navigator.wakeLock.request('screen');
+        console.log('Wake Lock active');
+    } catch (err) {
+        console.error('Wake Lock error:', err);
+    }
+}
+
+// Request on page load
+requestWakeLock();
+
+// Re-request if page becomes visible again
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+        requestWakeLock();
+    }
+});
+</script>
