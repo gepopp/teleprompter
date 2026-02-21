@@ -28,7 +28,7 @@ new class extends Component {
 ?>
 <div class="relative">
 
-    <div wire:click="next()" class="cursor-pointer h-screen w-screen flex justify-center bg-black text-white font-medium text-[10vw]">
+    <div wire:click="next()" class="cursor-pointer h-screen w-screen flex justify-center bg-black text-white font-medium text-[10vw] pt-10">
         <div @class(["p-2", "-scale-x-100" => $mirror])>
             @if($current == 0)
                 <h1 wire:transition>{{ $event->name }}</h1>
