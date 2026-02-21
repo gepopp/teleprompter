@@ -37,7 +37,7 @@ new class extends Component {
                     <h1 wire:transition>Bitte stelle dich vor, wer du bist und was du tust?</h1>
                 @else
                     <div wire:transition class="text-center">
-                        <small class="text-xl mb-4 text-center leading-0 animate-pulse">bitte vorlesen und beenden</small>
+                        <small class="text-2xl mb-4 text-center leading-0 animate-pulse">bitte vorlesen und beenden</small>
                         <h1 class="leading-none">{{ $event->questions[$current - 1] }}</h1>
                     </div>
                 @endif
